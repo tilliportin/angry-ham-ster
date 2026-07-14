@@ -127,7 +127,10 @@ Paina nappia vastaanottaaksesi ohje
 <div class="counter">
 Vastaanotettuja ohjeita: <span id="count">0</span>
 </div>
-
+<img id="surpriseGif"
+     src=""
+     alt="Yllätys-GIF"
+     style="display:none; max-width:100%; margin-top:20px;">
 </div>
 
 
@@ -192,14 +195,46 @@ let count = 0;
 
 function giveInstruction() {
 
-    let random = Math.floor(Math.random() * instructions.length);
+    const instructionBox =
+        document.getElementById("instruction");
 
-    document.getElementById("instruction").innerHTML =
-    instructions[random];
+    const surpriseGif =
+        document.getElementById("surpriseGif");
+
+    // Piilota GIF oletuksena
+    surpriseGif.style.display = "none";
+
+    // 5 % mahdollisuus näyttää GIF
+    if (Math.random() < 0.05) {
+
+        const gifs = [
+            "giphy-shy.gif",
+            "giphy-stupid.gif"
+        ];
+
+        const randomGif =
+            gifs[Math.floor(Math.random() * gifs.length)];
+
+        surpriseGif.src = randomGif;
+        surpriseGif.style.display = "block";
+
+        instructionBox.textContent =
+            "Hamsteri menetti hetkellisesti puhekykynsä.";
+
+    } else {
+
+        const random =
+            Math.floor(Math.random() * instructions.length);
+
+        instructionBox.textContent =
+            instructions[random];
+    }
 
     count++;
 
-    document.getElementById("count").innerHTML = count;
+    document.getElementById("count").textContent =
+        count;
+}
 }
 
 
