@@ -70,13 +70,12 @@ button:hover {
 }
 
 
-/* Hätä-GIF koko ruudulle */
+/* Halaus-GIF koko ruudulle */
 #emergencyGif {
     display: none;
     position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
+    z-index: 9998;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     background: black;
@@ -85,9 +84,36 @@ button:hover {
 }
 
 #emergencyGif img {
-    max-width: 95%;
-    max-height: 95%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
     border: none;
+    object-fit: contain;
+}
+
+/* Satunnainen yllätys-GIF koko ruudulle */
+#randomGifOverlay {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    justify-content: center;
+    align-items: center;
+}
+
+#randomGifImage {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    border: none;
+    object-fit: contain;
 }
 </style>
 
@@ -137,7 +163,11 @@ Vastaanotettuja ohjeita: <span id="count">0</span>
 <!-- Piilotettu yllätys-GIF -->
 
 <div id="emergencyGif">
-    <img src="marcus-the-worm-robert-help.gif">
+    <img src="marcus-the-worm-robert-help.gif" alt="Halaus-GIF">
+</div>
+
+<div id="randomGifOverlay">
+    <img id="randomGifImage" alt="">
 </div>
 
 
@@ -182,7 +212,7 @@ const instructions = [
 "sinussa on potentiaalia.",    
 ];
 
-const gifs = [
+const surpriseGifs = [
     "giphy-shy.gif",
     "giphy-stupid.gif"
 ];
@@ -190,48 +220,36 @@ const gifs = [
 let count = 0;
 
 function giveInstruction() {
+    const instructionBox = document.getElementById("instruction");
+    const overlay = document.getElementById("randomGifOverlay");
+    const image = document.getElementById("randomGifImage");
 
-    const instructionBox =
-        document.getElementById("instruction");
-
-    const surpriseGif =
-        document.getElementById("surpriseGif");
-
-    // Piilota GIF oletuksena
-    surpriseGif.style.display = "none";
-
-    // 5 % mahdollisuus näyttää GIF
-    if (Math.random() < 0.50) {
-
-        const gifs = [
-            "giphy-shy.gif",
-            "giphy-stupid.gif"
-        ];
-
+    // 5 % mahdollisuus näyttää yllätys-GIF.
+    if (Math.random() < 0.05) {
         const randomGif =
-            gifs[Math.floor(Math.random() * gifs.length)];
+            surpriseGifs[Math.floor(Math.random() * surpriseGifs.length)];
 
-        surpriseGif.src = randomGif;
-        surpriseGif.style.display = "block";
+        // Tyhjentäminen käynnistää GIF-animaation uudelleen.
+        image.src = "";
+        image.src = randomGif;
 
-        instructionBox.textContent =
-            "Hamsteri menetti hetkellisesti puhekykynsä.";
+        overlay.style.display = "flex";
+        instructionBox.textContent = "ERIKOISTAPAHTUMA HAVAITTU";
 
+        setTimeout(function () {
+            overlay.style.display = "none";
+            image.src = "";
+        }, 2000);
     } else {
-
         const random =
             Math.floor(Math.random() * instructions.length);
 
-        instructionBox.textContent =
-            instructions[random];
+        instructionBox.textContent = instructions[random];
     }
 
     count++;
-
-    document.getElementById("count").textContent =
-        count;
+    document.getElementById("count").textContent = count;
 }
-
 
 function activateEmergency() {
 
