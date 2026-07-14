@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -97,14 +97,14 @@ button:hover {
 
 <div class="container">
 
-<h1>SURVIVAL GUIDE FOR KESKI-IKÄISELLE</h1>
+<h1>SURVIVAL GUIDE FOR NKR</h1>
 
 <p class="warning">
 THREAT LEVEL: EXTREME
 </p>
 
 <p>
-Vuoden mittainen selviytymisjärjestelmä keski-ikäiselle NKR:lle.<br>
+Selviytymisjärjestelmä keski-ikäiselle Lochnessulle.<br>
 Noudata ohjeita, säästyt konflikteilta ja epämiellyttäviltä tilanteilta. 
 </p>
 
@@ -179,16 +179,12 @@ const instructions = [
 "Poikkeama havaittu: käyttäjä käyttäytyi järkevästi.",
 "Tilanneraportti: olet onnistunut välttämään tarpeettoman paniikin.",
 "Tänään et ole hamsterin suurin huolenaihe.",
-"sinussa on potentiaalia.",
-    
-    
-    
+"sinussa on potentiaalia.",    
+];
 
-    
-    
-    
-    
-
+const gifs = [
+    "giphy-shy.gif",
+    "giphy-stupid.gif"
 ];
 
 let count = 0;
@@ -205,7 +201,7 @@ function giveInstruction() {
     surpriseGif.style.display = "none";
 
     // 5 % mahdollisuus näyttää GIF
-    if (Math.random() < 0.05) {
+    if (Math.random() < 0.50) {
 
         const gifs = [
             "giphy-shy.gif",
@@ -234,7 +230,6 @@ function giveInstruction() {
 
     document.getElementById("count").textContent =
         count;
-}
 }
 
 
