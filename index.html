@@ -104,8 +104,8 @@ THREAT LEVEL: EXTREME
 </p>
 
 <p>
-Angry Hamster -selviytymisjärjestelmä.<br>
-Noudata ohjeita.
+Angry Hamster -selviytymisjärjestelmä NKR:lle.<br>
+Noudata ohjeita, säästyt konflikteilta ja epämiellyttäviltä tilanteilta. 
 </p>
 
 <img src="giphy.gif" alt="Angry Hamster">
@@ -117,7 +117,7 @@ ANNA SELVIYTYMISOHJE
 </button>
 
 <button onclick="activateEmergency()">
-AKTIVOI HÄTÄPROTOKOLLA
+AKTIVOI HALAUS
 </button>
 
 <div id="instruction">
@@ -141,11 +141,11 @@ Vastaanotettuja ohjeita: <span id="count">0</span>
 <script>
 
 const instructions = [
-"Älä koskaan katso Angry Hamsteria silmiin yli kolmea sekuntia.",
+"Älä koskaan katso silmiin yli kolmea sekuntia.",
 "Tarjoa siemeniä ennen kuin tarjoat mielipiteitä.",
 "Jos kuulet vihaista vinkunaa, olet jo myöhässä.",
 "Älä mainitse sanaa \"rauhoitu\". Se pahentaa tilannetta.",
-"Pidä vähintään kahden metrin turvaväli, jos hamsteri siristää silmiään.",
+"Pidä vähintään kahden metrin turvaväli, jos sinulle siristetään silmiä.",
 "Älä koske hätäsiemenvarastoon.",
 "Jos hamsteri tuijottaa tyhjyyteen, poistu alueelta rauhallisesti.",
 "Älä tee äkillisiä liikkeitä tai huonoja vitsejä.",
@@ -153,12 +153,30 @@ const instructions = [
 "Jos hamsteri näyttää iloiselta, kyseessä voi olla ansa.",
 "Viha ei häviä. Se vaihtaa vain kohdetta.",
 "Älä koskaan sano: \"Mikä noin pientä eläintä voi ärsyttää?\"",
-"Älä väittele hamsterin kanssa internetissä.",
-"Nyökkää kohteliaasti, vaikka et ymmärtäisi hamsterin motiiveja.",
+"Älä väittele rusettipäisen hamsterin kanssa internetissä.",
+"Nyökkää kohteliaasti, vaikka et ymmärtäisi motiiveja.",
 "Älä syö viimeistä siementä.",
 "Pidä aina hätäsiemen taskussa.",
-"Kaikki valitukset ja toiveet toimitetaan hamsterille. Niitä ei käsitellä.",
+"Kaikki valitukset ja toiveet kuuluu toimittaa. Niitä ei käsitellä.",
 "Koodi Punainen: joku alkoi jakamaan neuvoja."
+"Älä kysy Hamsterilta "miksi". Hamsteri tietää miksi.",
+"Tiedän missä asut.",
+"Pidä rauhallinen ääni, epävarmuuden voi haistaa.",
+"Älä koskaan koske punaiseen nappiin ilman lupaa.",
+"Tämä linkki asensi laitteellisi viruksen",
+"Hamsterin mukaan olet kehittynyt. Todisteita ei toimiteta.",
+"Huonoa makua ei voi parantaa, se on vain myönnettävä ja hyväksyttävä.",
+"Henkilökohtainen ohje: jatka olemista. Se on tähän asti toiminut.",
+"Saat luvan ottaa yhden herkun.",
+"SULLA on iso otsa.",
+"Mene vaikka uimaan.",
+"Olet hyvä. Ainakin historiassa.",
+" *Laiton uhkaus* "
+    
+    
+    
+    
+
 ];
 
 let count = 0;
