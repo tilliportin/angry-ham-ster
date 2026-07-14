@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Angry Hamster Survival Guide</title>
+
+<style>
+body {
+    background: #080808;
+    color: #eeeeee;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: #111;
+    border: 3px solid #ff0000;
+    padding: 25px;
+    box-shadow: 0 0 25px red;
+}
+
+h1 {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+.warning {
+    color: orange;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    margin: 20px 0;
+    border: 3px solid white;
+}
+
+button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: darkred;
+}
+
+#instruction {
+    margin-top: 25px;
+    min-height: 70px;
+    color: #00ff00;
+    font-size: 18px;
+}
+
+.counter {
+    color: gray;
+    margin-top: 20px;
+}
+
+.secret {
+    color: #666;
+    font-size: 12px;
+    margin-top: 30px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🐹 ANGRY HAMSTER<br>SURVIVAL GUIDE</h1>
+
+<p class="warning">
+⚠️ THREAT LEVEL: EXTREME ⚠️
+</p>
+
+<p>
+Olet saanut pääsyn viralliseen Angry Hamster -selviytymisjärjestelmään.
+Noudata ohjeita huolellisesti.
+</p>
+
+<img src="marcus-the-worm-robert-help.gif" alt="Angry Hamster Emergency">
+
+<br>
+
+<button onclick="giveInstruction()">
+🎲 ANNA SELVIYTYMISOHJE
+</button>
+
+<div id="instruction">
+Paina nappia vastaanottaaksesi ensimmäisen ohjeen.
+</div>
+
+<div class="counter">
+Vastaanotettuja ohjeita: <span id="count">0</span>
+</div>
+
+<div class="secret">
+Järjestelmä valvoo hamsterin mielialaa.
+</div>
+
+</div>
+
+
+<script>
+
+const instructions = [
+"👁️ Älä koskaan katso Angry Hamsteria silmiin yli kolmea sekuntia.",
+"🌻 Tarjoa siemeniä ennen kuin tarjoat mielipiteitä.",
+"🚨 Jos kuulet vihaista vinkunaa, olet jo myöhässä.",
+"⚠️ Älä mainitse sanaa \"rauhoitu\". Se pahentaa tilannetta.",
+"📏 Pidä vähintään kahden metrin turvaväli, jos hamsteri siristää silmiään.",
+"🔒 Älä koske hätäsiemenvarastoon.",
+"🚪 Jos hamsteri tuijottaa tyhjyyteen, poistu alueelta rauhallisesti.",
+"💨 Älä tee äkillisiä liikkeitä tai huonoja vitsejä.",
+"🐹 Hamsteri ei ole vihainen sinulle. Hamsteri on vihainen käsitteelle \"maanantai\".",
+"🎭 Jos hamsteri näyttää iloiselta, kyseessä voi olla ansa.",
+"🔥 Viha ei häviä. Se vaihtaa vain kohdetta.",
+"❌ Älä koskaan sano: \"Mikä noin pientä eläintä voi ärsyttää?\"",
+"💻 Älä väittele hamsterin kanssa internetissä.",
+"🫡 Nyökkää kohteliaasti, vaikka et ymmärtäisi hamsterin motiiveja.",
+"🌻 Älä syö viimeistä siementä.",
+"🧥 Pidä aina hätäsiemen taskussa."
+];
+
+let count = 0;
+
+function giveInstruction() {
+
+    let random = Math.floor(Math.random() * instructions.length);
+
+    document.getElementById("instruction").innerHTML =
+    instructions[random];
+
+    count++;
+
+    document.getElementById("count").innerHTML = count;
+}
+
+</script>
+
+</body>
+</html>
