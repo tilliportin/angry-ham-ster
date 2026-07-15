@@ -121,11 +121,69 @@ button:hover {
     border: none;
     object-fit: contain;
 }
+    #loginScreen {
+    position: fixed;
+    inset: 0;
+    background: #050505;
+    color: #ff3333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    font-family: "Courier New", monospace;
+}
+
+#loginScreen h1 {
+    color: red;
+    text-shadow: 0 0 15px red;
+}
+
+#loginScreen input {
+    background: black;
+    color: #00ff00;
+    border: 2px solid red;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#loginError {
+    color: orange;
+    margin-top: 15px;
+}
 </style>
 
 </head>
 
 <body>
+
+<div id="loginScreen">
+
+    <h1>⚠ DANGER ZONE ⚠</h1>
+
+    <p>
+        Tämä järjestelmä sisältää luokiteltua hamsteritiedustelutietoa.
+    </p>
+
+    <p>
+        Anna käyttöoikeuskoodi.
+    </p>
+
+    <input
+        type="password"
+        id="passwordInput"
+        placeholder="Access Code">
+
+    <br><br>
+
+    <button onclick="checkPassword()">
+        AUTHORIZE
+    </button>
+
+    <p id="loginError"></p>
+
+</div>
 
 <div class="container">
 
@@ -286,6 +344,38 @@ function activateEmergency() {
     }, 3000);
 
 }
+    function checkPassword() {
+
+    const correctPassword = "1993";
+
+    const enteredPassword =
+        document.getElementById("passwordInput").value;
+
+    if (enteredPassword === correctPassword) {
+
+        document.getElementById("loginScreen").style.display = "none";
+
+    } else {
+
+        document.getElementById("loginError").textContent =
+            "ACCESS DENIED";
+
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document
+        .getElementById("passwordInput")
+        .addEventListener("keypress", function (event) {
+
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+
+        });
+
+});
 
 </script>
 
