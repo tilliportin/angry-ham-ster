@@ -139,7 +139,8 @@ button:hover {
     min-height: 70px;
     padding: 0;
     color: #eeeeee;
-    font-size: 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
     line-height: 1.6;
     text-align: center;
     border: none;
@@ -182,6 +183,13 @@ button:hover {
 
 .message-box textarea:focus {
     border-color: #a54f4f;
+}
+    #charCount {
+    margin-top: 6px;
+    text-align: right;
+    color: #666666;
+    font-size: 11px;
+    font-family: "Courier New", monospace;
 }
 
 .message-actions {
@@ -301,9 +309,22 @@ body.locked .container {
     }
 
     .message-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
+        flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message-actions button {
+    width: auto;
+    padding: 9px 14px;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+#messageStatus {
+    flex: 1;
+    font-size: 12px;
+}
 }
 </style>
 
@@ -386,7 +407,7 @@ Vastaanotettuja ohjeita: <span id="count">0</span>
     <textarea
         id="messageInput"
         placeholder="Kirjoita viesti..."
-        maxlength="500"></textarea>
+        maxlength="1000"></textarea>
 
     <div class="message-actions">
 
@@ -576,7 +597,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+const messageInput = document.getElementById("messageInput");
+const charCount = document.getElementById("charCount");
 
+messageInput.addEventListener("input", function () {
+    charCount.textContent =
+        messageInput.value.length + " / 1000";
+});
 });
 
 </script>
@@ -630,6 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     input.value = "";
+    document.getElementById("charCount").textContent = "0 / 1000";
     status.textContent = "VIESTI VÄLITETTY ✓";
 }
 </script>
