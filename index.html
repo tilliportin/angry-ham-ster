@@ -564,7 +564,7 @@ function giveInstruction() {
     const image = document.getElementById("randomGifImage");
 
     // 5 % mahdollisuus näyttää yllätys-GIF.
-    if (Math.random() < 0.50) {
+    if (Math.random() < 0.02) {
         const randomGif =
             surpriseGifs[Math.floor(Math.random() * surpriseGifs.length)];
 
@@ -605,7 +605,7 @@ function activateEmergency() {
         setTimeout(function () {
             overlay.style.display = "none";
             image.src = "";
-        }, 1500);
+        }, 1900);
 
     }, 20);
 }
