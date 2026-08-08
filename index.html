@@ -139,7 +139,7 @@ button:hover {
     min-height: 70px;
     padding: 0;
     color: #eeeeee;
-    font-family: Georgia, Palatino, "Palatino Linotype", "Book Antiqua", serif;
+    font-family: Baskerville, "Baskerville Old Face", Georgia, serif;
     font-size: 18px;
     line-height: 1.6;
     text-align: center;
@@ -402,16 +402,18 @@ Vastaanotettuja ohjeita: <span id="count">0</span>
 
 <div class="message-box">
 
-    <h2>LÄHETÄ VASTALAUSE, tämä on salainen, yksipuolinen viestintäväline</h2>
+    <h2>LÄHETÄ VASTALAUSE</h2>
 
     <textarea
         id="messageInput"
         placeholder="Kirjoita viesti..."
         maxlength="1000"></textarea>
 
+   <div id="charCount">0 / 1000</div>
+
     <div class="message-actions">
 
-        <p id="messageStatus"></p>
+        <p id="messageStatus">TERMINAL READY</p>
 
         <button class="btn-red" onclick="sendMessage()">
             LÄHETÄ
@@ -603,7 +605,7 @@ const charCount = document.getElementById("charCount");
 messageInput.addEventListener("input", function () {
     charCount.textContent =
         messageInput.value.length + " / 1000";
-});
+    });
 });
 
 </script>
@@ -634,6 +636,7 @@ messageInput.addEventListener("input", function () {
 
     const input = document.getElementById("messageInput");
     const status = document.getElementById("messageStatus");
+    const charCount = document.getElementById("charCount");
 
     const message = input.value.trim();
 
