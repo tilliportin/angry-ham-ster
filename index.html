@@ -139,8 +139,8 @@ button:hover {
     min-height: 70px;
     padding: 0;
     color: #eeeeee;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 20px;
+    font-family: Georgia, Palatino, "Palatino Linotype", "Book Antiqua", serif;
+    font-size: 18px;
     line-height: 1.6;
     text-align: center;
     border: none;
@@ -641,8 +641,6 @@ messageInput.addEventListener("input", function () {
         status.textContent = "Kirjoita ensin viesti.";
         return;
     }
-
-    status.textContent = "Lähetetään...";
 
     const { error } = await supabaseClient
         .from("messages")
