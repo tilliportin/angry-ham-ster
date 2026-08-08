@@ -234,6 +234,23 @@ button:hover {
     color: orange;
     margin-top: 15px;
 }
+    #loginError {
+    color: orange;
+    margin-top: 15px;
+}
+
+
+/* Piilota varsinainen sivu ennen kirjautumista */
+body.locked {
+    overflow: hidden;
+}
+
+body.locked .container {
+    display: none;
+}
+
+
+</style>
 
 /* GIF overlayt */
 
@@ -285,7 +302,7 @@ button:hover {
 
 </head>
 
-<body>
+<body class="locked">
 
 <div id="loginScreen">
 
@@ -342,7 +359,7 @@ Noudata ohjeita, säästyt konflikteilta ja epämiellyttäviltä tilanteilta.
     </button>
 
     <button class="btn-yellow" onclick="thirdAction()">
-        SALAINEN TOIMINTO
+        TULOSSA
     </button>
 
 </div>
@@ -357,7 +374,7 @@ Vastaanotettuja ohjeita: <span id="count">0</span>
 
 <div class="message-box">
 
-    <h2>LÄHETÄ VASTALAUSE</h2>
+    <h2>LÄHETÄ VASTALAUSE, tämä on salainen, yksipuolinen viestintäväline</h2>
 
     <textarea
         id="messageInput"
@@ -485,7 +502,7 @@ function giveInstruction() {
     const image = document.getElementById("randomGifImage");
 
     // 5 % mahdollisuus näyttää yllätys-GIF.
-    if (Math.random() < 0.03) {
+    if (Math.random() < 0.02) {
         const randomGif =
             surpriseGifs[Math.floor(Math.random() * surpriseGifs.length)];
 
@@ -531,9 +548,10 @@ function activateEmergency() {
 
     if (enteredPassword === correctPassword) {
 
-        document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("loginScreen").style.display = "none";
+    document.body.classList.remove("locked");
 
-    } else {
+} else {
 
         document.getElementById("loginError").textContent =
             "ACCESS DENIED";
