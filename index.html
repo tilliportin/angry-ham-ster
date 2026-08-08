@@ -564,7 +564,7 @@ function giveInstruction() {
     const image = document.getElementById("randomGifImage");
 
     // 5 % mahdollisuus näyttää yllätys-GIF.
-    if (Math.random() < 0.10) {
+    if (Math.random() < 0.50) {
         const randomGif =
             surpriseGifs[Math.floor(Math.random() * surpriseGifs.length)];
 
@@ -592,14 +592,22 @@ function giveInstruction() {
 
 function activateEmergency() {
 
-    let gif = document.getElementById("emergencyGif");
+    const overlay = document.getElementById("emergencyGif");
+    const image = overlay.querySelector("img");
 
-    gif.style.display = "flex";
+    image.src = "";
 
-    setTimeout(function() {
-        gif.style.display = "none";
-    }, 1500);
+    setTimeout(function () {
 
+        image.src = "marcus-the-worm-robert-help.gif?restart=" + Date.now();
+        overlay.style.display = "flex";
+
+        setTimeout(function () {
+            overlay.style.display = "none";
+            image.src = "";
+        }, 1500);
+
+    }, 20);
 }
     function checkPassword() {
 
