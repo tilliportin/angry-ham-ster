@@ -71,9 +71,9 @@ h1 {
 
 /* GIF PÄÄOSASSA */
 
-..main-gif {
+.main-gif {
     width: 100%;
-    margin: 20px 0 45px;
+    margin: 20px 0 35px;
     padding: 0;
     background: transparent;
 }
@@ -203,16 +203,28 @@ button:hover {
 
 #loginScreen {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
     background: #050505;
     color: #ff3333;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     z-index: 99999;
     font-family: "Courier New", monospace;
+
     padding: 30px;
+    overflow: hidden;
 }
 
 #loginScreen h1 {
@@ -233,10 +245,6 @@ button:hover {
     color: orange;
     margin-top: 15px;
 }
-    #loginError {
-    color: orange;
-    margin-top: 15px;
-}
 
 
 /* Piilota varsinainen sivu ennen kirjautumista */
@@ -247,9 +255,6 @@ body.locked {
 body.locked .container {
     display: none;
 }
-
-
-</style>
 
 /* GIF overlayt */
 
@@ -280,12 +285,15 @@ body.locked .container {
 /* MOBIILI */
 
 @media (max-width: 700px) {
+
     body {
         padding: 10px;
     }
 
     .container {
         padding: 20px;
+        border: none;
+        box-shadow: none;
     }
 
     .actions {
@@ -397,7 +405,6 @@ Vastaanotettuja ohjeita: <span id="count">0</span>
      src=""
      alt="Yllätys-GIF"
      style="display:none; max-width:100%; margin-top:20px;">
-</div>
 
 
 <!-- Piilotettu yllätys-GIF -->
