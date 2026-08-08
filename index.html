@@ -11,6 +11,27 @@
     box-sizing: border-box;
 }
 
+html {
+    background: #030303;
+    overscroll-behavior: none;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background:
+        radial-gradient(circle at top, #161616 0%, #090909 45%, #030303 100%);
+
+    color: #eeeeee;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    padding: 24px;
+
+    overscroll-behavior: none;
+}
+
 body {
     margin: 0;
     background:
@@ -359,8 +380,7 @@ body.locked .container {
     <p>
         Anna käyttöoikeuskoodi.
     </p>
-<form id="loginForm">
-    <form id="loginForm">
+<form id="loginForm" onsubmit="event.preventDefault(); checkPassword();">
 
     <input
         type="password"
@@ -600,10 +620,7 @@ function activateEmergency() {
 
     }
 }
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    checkPassword();
-});
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
