@@ -354,17 +354,21 @@ body.locked .container {
     <p>
         Anna käyttöoikeuskoodi.
     </p>
+<form id="loginForm">
+    <form id="loginForm">
 
     <input
         type="password"
         id="passwordInput"
         placeholder="Access Code">
 
-    <button onclick="checkPassword()">
+    <button type="submit">
         AUTHORIZE
     </button>
 
     <p id="loginError"></p>
+
+</form>
 
 </div>
 
@@ -591,6 +595,10 @@ function activateEmergency() {
 
     }
 }
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    checkPassword();
+});
 
 document.addEventListener("DOMContentLoaded", function () {
 
