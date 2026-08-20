@@ -419,7 +419,7 @@ body.locked .container {
     </button>
 
     <button class="btn-yellow" onclick="thirdAction()">
-        TULOSSA
+        ODOTAN EDELLEEN
     </button>
 
 </div>
@@ -608,6 +608,12 @@ function activateEmergency() {
         }, 1900);
 
     }, 20);
+}
+    function thirdAction() {
+    const instructionBox = document.getElementById("instruction");
+
+    instructionBox.textContent =
+        "Mitä tarkoittaa AIKA HYVIN?";
 }
     function checkPassword() {
 
